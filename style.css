@@ -1,0 +1,154 @@
+@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@100..900&display=swap');
+
+/* --- ESTILOS BASE (APLICABLES A MÓVILES) --- */
+
+body {
+  font-family: 'Outfit', sans-serif;
+  background: linear-gradient(100deg, #ffffff, #ffce65);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  margin: 0;
+  padding: 20px;
+  box-sizing: border-box;
+  /* El body debe tener posición relativa para que el posicionamiento absoluto 
+     de las imágenes se base en él, no en el viewport. */
+  position: relative; 
+}
+
+/* ---------------------- ESTILOS DE IMÁGENES EN MÓVIL ---------------------- */
+
+.imagen3, .imagen2 {
+  display: block;
+  /* Posicionamiento para todas las imágenes */
+  position: absolute; 
+  height: auto;
+  max-width: 90%; /* Asegura que no se desborde del 90% del body */
+}
+
+/* IMAGEN 3 (Izquierda, se achica) */
+.imagen3 {
+  /* Tamaño achicado para móvil */
+  width: 120px; 
+  /* Posicionamiento y Profundidad */
+  top: 5px; 
+  left: 5px;
+  z-index: 10; /* Se mantiene por encima de la imagen2 pero detrás del contenedor */
+}
+
+/* IMAGEN 2 (Detrás del formulario) */
+.imagen2 {
+  /* Tamaño para móvil */
+  width: 200px; 
+  /* Profundidad: Mover detrás del body/contenedor */
+  z-index: -1; 
+  /* Posicionamiento: Centrarla */
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  opacity: 0.3; /* Leve transparencia para que sea un fondo */
+}
+
+/* -------------------- ESTILOS DEL CONTENEDOR PRINCIPAL -------------------- */
+
+.contenedor {
+  background: #fff;
+  padding: 30px;
+  border-radius: 15px;
+  box-shadow: 0 8px 20px rgba(0,0,0,0.2);
+  text-align: center;
+  animation: fadeIn 1s ease-in-out;
+  /* Responsive: Ocupa todo el ancho disponible, con un máximo */
+  max-width: 450px; 
+  width: 100%; 
+  /* El contenedor debe estar por encima de la imagen2 (z-index: -1) */
+  position: relative; 
+  z-index: 5; 
+}
+
+h1 {
+  margin-bottom: 20px;
+  color: #c9a24f;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+}
+
+label {
+  margin-top: 10px;
+  text-align: left;
+  font-weight: bold;
+  color: #c9a24f;
+}
+
+input, button {
+  margin-top: 5px;
+  padding: 10px;
+  border-radius: 8px;
+  border: 1px solid #adacac;
+  box-sizing: border-box;
+}
+
+button {
+  background: #ffce65;
+  color: rgb(255, 255, 255);
+  font-weight: bold;
+  cursor: pointer;
+  border: none;
+  transition: background 0.3s;
+  margin-top: 20px;
+}
+
+button:hover {
+  background: #b89341;
+}
+
+#mensaje {
+  margin-top: 15px;
+  font-weight: bold;
+  color: red;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: scale(0.9); }
+  to { opacity: 1; transform: scale(1); }
+}
+
+/* -------------------------------------------------------------------------- */
+/* ------------------------- MEDIA QUERY PARA ESCRITORIO ---------------------- */
+/* -------------------------------------------------------------------------- */
+
+@media (min-width: 768px) {
+  
+  /* IMAGEN 3 (Vuelve a tamaño grande y posición izquierda) */
+  .imagen3 {
+    width: 250px; /* Tamaño original/grande */
+    height: 300px;
+    top: 5%;
+    left: 5%;
+    z-index: 15; /* Se mantiene en la capa frontal (opcional) */
+  }
+
+  /* IMAGEN 2 (Vuelve a tamaño grande y posición derecha/central) */
+  .imagen2 {
+    width: 500px; /* Tamaño original/grande */
+    height: 700px;
+    z-index: 0; /* Vuelve a una capa neutra */
+    opacity: 1; /* Vuelve a ser completamente visible */
+    
+    /* Restaurar el posicionamiento en el lado o centro */
+    top: 30px;
+    left: 50%;
+    transform: translateX(10%); /* Solo mover hacia abajo el 10% de su altura */
+  }
+
+  /* CONTENEDOR PRINCIPAL */
+  .contenedor {
+    /* Asegura que el contenedor esté sobre las imágenes, 
+       si estas se superponen un poco. */
+    z-index: 20; 
+  }
+}

@@ -1,23 +1,41 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Skay Lashes - Turnos</title>
-    <link rel="stylesheet" href="styles.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="icon" type="image/x-icon" href="imagen1.jpg">
+  <title>Turnos - Skay Lashees</title>
+  <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    
-    <section class="head">
-            <h1>Skay Lashes</h1>
-    </section>
 
-    <section>
-        <form class="formulario">
-            <input type="int" name="Telefono" id="tel">
-            <input type="text" name="Instagram" id="ig">
-            <button type="submit">Enviar</button>
-        </form>
-    </section>
+  <div class="imagen">
+    <img class="imagen3" src="imagen3.png" alt="sticker">
+  </div>
+
+  <div class="imagen2">
+    <img class="imagen2" src="imagen2.png" alt="sticker">
+  </div>
+
+  <div class="contenedor">
+    <h1>💖 Reserva tu turno</h1>
+
+    <form id="form-turno">
+      <label for="nombre">Tu nombre:</label>
+      <input type="text" id="nombre" name="nombre" required>
+
+      <label for="fecha">Elige un día:</label>
+      <input type="date" id="fecha" name="fecha" required>
+
+      <label for="hora">Elige la hora:</label>
+      <input type="time" id="hora" name="hora" required>
+
+      <button type="submit">Reservar turno</button>
+    </form>
+
+    <p id="mensaje"></p>
+  </div>
+
+  <script src="script.js"></script>
 </body>
 </html>
